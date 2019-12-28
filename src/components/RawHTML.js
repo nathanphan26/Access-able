@@ -1,34 +1,34 @@
 import React, { Component } from 'react'
 
 export class RawHTML extends Component {
-  // createHTML = () => {
-  //   if (this.props.columns !== undefined && this.props.rows !== undefined) {
-  //     let html = [];
-  //     if (this.props.rows !== 0 && this.props.columns !== 0) html.push(`<table>`);
-  //     html.push(<br/>);
-  //     for (let i = 0; i < this.props.rows; i++) {
-  //       html.push(<span>&nbsp;</span>);
-  //       html.push(`<tr>`);
-  //       html.push(<br/>);
-  //       for (let j = 0; j < this.props.columns; j++) {
-  //         html.push(<span>&nbsp;&nbsp;</span>);
-  //         if (i === this.props.headerRow) {
-  //           html.push(`<th scope="col">Column</th>`);
-  //         } else if (j === this.props.headerColumn) {
-  //           html.push(`<th scope="row">Column</th>`);
-  //         } else {
-  //           html.push(`<td>Column</td>`);
-  //         }
-  //         html.push(<br/>);
-  //       }
-  //       html.push(<span>&nbsp;</span>);
-  //       html.push(`</tr>`)
-  //       html.push(<br/>);
-  //     }
-  //     if (this.props.rows !== 0 && this.props.columns !== 0) html.push(`</table>`);
-  //     return html;
-  //   }
-  // }
+  createHTML = () => {
+    if (this.props.columns !== undefined && this.props.rows !== undefined) {
+      let html = [];
+      if (this.props.rows !== 0 && this.props.columns !== 0) html.push(`<table>`);
+      html.push(<br/>);
+      for (let i = 0; i < this.props.rows; i++) {
+        html.push(<span>&nbsp;</span>);
+        html.push(`<tr>`);
+        html.push(<br/>);
+        for (let j = 0; j < this.props.columns; j++) {
+          html.push(<span>&nbsp;&nbsp;</span>);
+          if (i === this.props.headerRow) {
+            html.push(`<th scope="col">Column</th>`);
+          } else if (j === this.props.headerColumn) {
+            html.push(`<th scope="row">Column</th>`);
+          } else {
+            html.push(`<td>Column</td>`);
+          }
+          html.push(<br/>);
+        }
+        html.push(<span>&nbsp;</span>);
+        html.push(`</tr>`)
+        html.push(<br/>);
+      }
+      if (this.props.rows !== 0 && this.props.columns !== 0) html.push(`</table>`);
+      return html;
+    }
+  }
 
   createHTML = () => {
     if (this.props.columns !== undefined && this.props.rows !== undefined) {

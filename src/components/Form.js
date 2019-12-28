@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Table from './Table';
 import RawHTML from './RawHTML';
 import Nav from './Nav';
+import Editor from './Editor';
 
 import { Input, Dropdown, Button, Icon } from 'semantic-ui-react'
 import { Container, Divider, Grid, Image, Segment } from 'semantic-ui-react'
@@ -61,7 +62,7 @@ export class Form extends Component {
         <Nav />
         <Container className='mainContainer'>
           <Segment className='mainContainer'>
-            <Grid columns={2} relaxed='very'>
+            <Grid columns={2} relaxed='very' style={{height: '100%'}}>
               <Grid.Column>
                 <Input type='number' placeholder='# Rows' ref='rows' id='rows' onChange={this.onChange}/>
                 <br />
@@ -92,7 +93,7 @@ export class Form extends Component {
                 <br />
               </Grid.Column>
               <Grid.Column>
-
+                <Editor rows={4} columns={4} headerRow={2} headerColumn={1}/>
               </Grid.Column>
             </Grid>
 
@@ -101,9 +102,10 @@ export class Form extends Component {
                 &#10148;
               </div>
             </Divider>
-            
+
           </Segment>
         </Container>
+        
       </div>
     )
   }
