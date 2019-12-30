@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Nav from './Nav';
 import Editor from './Editor';
+import * as MainHelper from '../helpers/Main-helper';
 
 import { Container, Divider, Form, Grid, Segment } from 'semantic-ui-react'
 
@@ -12,7 +13,7 @@ export class Main extends Component {
     headerRow: undefined,
     headerColumn: undefined,
     render: false,
-    code: ''
+    code: ``
   }
 
   onChange = (e) => {
@@ -49,30 +50,14 @@ export class Main extends Component {
 
   createHTML = () => {
     if (this.state.rows !== undefined && this.state.columns !== undefined) {
-      let html = ``;
-      if (this.state.rows !== 0 && this.state.columns !== 0) html += (`<table>`);
-      for (let i = 0; i < this.state.rows; i++) {
-        html += `
-  <tr>`;
-        for (let j = 0; j < this.state.columns; j++) {
-          if (i === this.state.headerRow) {
-            html += `
-    <th scope="col">Column</th>`;
-          } else if (j === this.state.headerColumn) {
-            html += `
-    <th scope="row">Column</th>`;
-          } else {
-            html += `
-    <td>Column</td>`;
-          }
-        }
-        html += `
-  </tr>`;
-      }
-      if (this.state.rows !== 0 && this.state.columns !== 0) html += (`
-</table>`);
+      let code = MainHelper.createHTML(
+        this.state.rows, 
+        this.state.columns, 
+        this.state.headerRow, 
+        this.state.headerColumn
+      );
       this.setState({
-        code: html
+        code: code
       });
     }
   }
