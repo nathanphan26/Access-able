@@ -1,0 +1,33 @@
+#mainMenu {
+  background-color: #4f3b78;
+}
+
+#mainHeader{
+  color: #efefef;
+  /* border-style: solid;
+  border-width: 1px; */
+  padding-left: 15px;
+}
+
+#mainSegment {
+  background-color: #927fbf;
+}
+
+#submitter {
+  cursor: pointer;
+  /* border-style: solid;
+  border-width: 1px; */
+  transition: all .2s ease-in-out;
+}
+
+#submitter:hover {
+  transform: scale(1.5); 
+}
+
+.ui.form .field>label{
+  color: #363b4e; 
+}
+
+body {
+  background-color: #363b4e;
+}

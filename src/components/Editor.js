@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-html";
-import "ace-builds/src-noconflict/theme-kuroir";
+import "ace-builds/src-noconflict/theme-tomorrow";
 
 export class Editor extends Component {
   render() {
@@ -12,7 +12,7 @@ export class Editor extends Component {
         width='100%' 
         mode='html' 
         placeholder='Fill in inputs on the left to generate html'
-        theme="kuroir"
+        theme="tomorrow"
         value={this.props.code}
       />
     );

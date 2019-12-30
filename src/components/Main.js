@@ -82,8 +82,8 @@ export class Main extends Component {
     return (
       <div>
         <Nav />
-        <Container className='mainContainer'>
-          <Segment className='mainContainer'>
+        <Container className='mainContainer' id='mainContainer'>
+          <Segment className='mainContainer' id='mainSegment'>
             <Grid columns={2} relaxed='very' style={{height: '100%'}}>
               <Grid.Column>
                 <Form>
@@ -140,7 +140,7 @@ export class Main extends Component {
             </Grid>
 
             <Divider vertical>
-              <div onClick={this.createHTML}>
+              <div id='submitter' onClick={this.createHTML}>
                 &#10148;
               </div>
             </Divider>
