@@ -3,7 +3,7 @@ import Nav from './Nav';
 import Editor from './Editor';
 import * as MainHelper from '../helpers/Main-helper';
 
-import { Container, Divider, Form, Grid, Segment } from 'semantic-ui-react'
+import { Container, Divider, Form, Grid, Segment, Button, Icon, Dropdown, Label } from 'semantic-ui-react'
 
 export class Main extends Component {
 
@@ -62,6 +62,13 @@ export class Main extends Component {
     }
   }
 
+  componentDidMount() {
+    const headerRow = document.querySelector('#headerRow');
+    const headerColumn = document.querySelector('#headerColumn');
+    headerRow.removeAttribute('role');
+    headerColumn.removeAttribute('role');
+  }
+
   render() {
     let rowOptions = [];
     for (let i = 0; i < this.state.rows; i++) {
@@ -82,10 +89,10 @@ export class Main extends Component {
     return (
       <div>
         <Nav />
-        <Container className='mainContainer' id='mainContainer'>
-          <Segment className='mainContainer' id='mainSegment'>
-            <Grid columns={2} relaxed='very' style={{height: '100%'}}>
-              <Grid.Column>
+        <Container className='heightFix' id='mainContainer'>          
+          <Grid columns='equal'>
+            <Grid.Column>
+              <Segment className='heightFix' id='mainSegment'>
                 <Form>
                   <Form.Group widths='equal'>
                     <Form.Input 
@@ -98,9 +105,10 @@ export class Main extends Component {
                     <Form.Dropdown 
                       id='headerRow'
                       fluid 
-                      search 
                       selection 
+                      labeled={true}
                       label='Header Row' 
+                      aria-label='Header Row'
                       options={rowOptions}
                       disabled={this.state.rows === undefined} 
                       onChange={this.onChangeHeaderRow} 
@@ -117,17 +125,26 @@ export class Main extends Component {
                     <Form.Dropdown 
                       id='headerColumn'
                       fluid 
-                      search 
                       selection 
-                      label='Header Column' 
+                      label='Header Column'
+                      aria-label='Header Column'
                       options={columnOptions}
                       disabled={this.state.columns === undefined} 
                       onChange={this.onChangeHeaderColumn} 
                     />
                   </Form.Group>
                 </Form>
-              </Grid.Column>
-              <Grid.Column>
+              </Segment>
+            </Grid.Column>
+            <Grid.Column width={2} id='wrapper'>
+              {/* <Segment id='secondarySegment' textAlign='center'> */}
+              <Button id='mainButton' icon onClick={this.createHTML}>
+                <Icon name='angle double right' aria-label='Generate HTML'/>
+              </Button>
+              {/* </Segment> */}
+            </Grid.Column>
+            <Grid.Column>
+              <Segment className='heightFix' id='tertiarySegment'>
                 <Editor 
                   rows={this.state.rows} 
                   columns={this.state.columns} 
@@ -136,18 +153,10 @@ export class Main extends Component {
                   render={this.state.render}
                   code={this.state.code}
                 />
-              </Grid.Column>
-            </Grid>
-
-            <Divider vertical>
-              <div id='submitter' onClick={this.createHTML}>
-                &#10148;
-              </div>
-            </Divider>
-
-          </Segment>
+              </Segment>
+            </Grid.Column>
+          </Grid>
         </Container>
-        
       </div>
     )
   }

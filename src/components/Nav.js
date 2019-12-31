@@ -4,7 +4,7 @@ import { Menu, Header } from 'semantic-ui-react'
 export class Nav extends Component {
   render() {
     return (
-      <Menu id='mainMenu' tabular inverted >
+      <Menu id='mainMenu' tabular inverted role='navigation'>
         <Menu.Header id='mainHeader' as='h1'>AccessibleTableGenerator</Menu.Header>
       </Menu>
     )
